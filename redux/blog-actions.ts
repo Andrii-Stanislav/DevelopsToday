@@ -9,7 +9,7 @@ const addPost = post => ({
 });
 
 const actions = {
- fetchPosts,
-  addPost
+  fetchPosts,
+  addPost,
 };
 export default actions;

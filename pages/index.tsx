@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { NextPageContext } from 'next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import actions from '../redux/blog-actions'
-import selectors from '../redux/blog-selectors'
+import actions from '../redux/blog-actions';
+import selectors from '../redux/blog-selectors';
 import { getAllPosts } from '../services/apiServices';
 
 import Post from '../components/Post';
@@ -14,20 +14,20 @@ interface PostsPageProps {
   posts: PostProps[];
 }
 
-export default function Home({ posts: serverPosts }: PostsPageProps):React.ReactElement {
-  const posts = useSelector(selectors.getPosts)
-  const dispatch = useDispatch()
+export default function Home({ posts: serverPosts }: PostsPageProps): React.ReactElement {
+  const posts = useSelector(selectors.getPosts);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function load() {
       const posts = await getAllPosts();
-      dispatch(actions.fetchPosts(posts))
+      dispatch(actions.fetchPosts(posts));
     }
 
     if (!serverPosts) {
       load();
     } else {
-      dispatch(actions.fetchPosts(serverPosts))
+      dispatch(actions.fetchPosts(serverPosts));
     }
   }, []);
 

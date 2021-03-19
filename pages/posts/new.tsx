@@ -5,7 +5,7 @@ import FormForPost from '../../components/FormForPost';
 
 import { createPost } from '../../services/apiServices';
 
-export default function NewPost():React.ReactElement {
+export default function NewPost(): React.ReactElement {
   const heandleCreatePost = async postObj => {
     await createPost(postObj);
     Router.push('/');

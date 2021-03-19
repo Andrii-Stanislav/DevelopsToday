@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Button = styled.button`
   display: flex;
@@ -11,11 +11,11 @@ const Button = styled.button`
   outline: none;
   transition: all 250ms linear;
 
-    &:hover {
-        color: #fff;
-        box-shadow: 0 0 10px grey;
-        transform: scale(1.05);
-    }
-`
+  &:hover {
+    color: #fff;
+    box-shadow: 0 0 10px grey;
+    transform: scale(1.05);
+  }
+`;
 
 export default Button;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './FormForPost.module.css';
 
-import Button from '../Button'
+import Button from '../Button';
 
 interface FormProps {
   btnText: string;
@@ -42,10 +42,7 @@ export default function FormForPost({
           required
         />
       </label>
-      <Button
-        type="button"
-        onClick={() => submitFunction({ body: post, title })}
-      >
+      <Button type="button" onClick={() => submitFunction({ body: post, title })}>
         {' '}
         {btnText}{' '}
       </Button>

@@ -3,11 +3,11 @@ import Head from 'next/head';
 import styles from './Layout.module.css';
 
 interface LayoutProps {
-  header: ReactElement,
-  children: ReactElement | ReactElement[]
+  header: ReactElement;
+  children: ReactElement | ReactElement[];
 }
 
-export default function Layout({ header, children }: LayoutProps): React.ReactElement{
+export default function Layout({ header, children }: LayoutProps): React.ReactElement {
   return (
     <div>
       <Head>

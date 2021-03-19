@@ -1,31 +1,31 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 import { getOnePost, deletePost, updatePost } from '../../services/apiServices';
 
 import PostInterfaces from '../../interfaces/Post';
 interface PostProps {
-  serverPost: PostInterfaces
+  serverPost: PostInterfaces;
 }
 
-import Button from '../../components/Button'
+import Button from '../../components/Button';
 import FormForPost from '../../components/FormForPost';
-import Comments from '../../components/Comments'
+import Comments from '../../components/Comments';
 
 const BtnBox = styled.div`
   display: flex;
-`
+`;
 
 const StyledPost = styled.p`
   width: fit-content;
   padding: 10px;
   background-color: #eeeeee;
   color: grey;
-`
+`;
 
-export default function Post({ serverPost }:PostProps): React.ReactElement {
+export default function Post({ serverPost }: PostProps): React.ReactElement {
   const [post, setPost] = useState(serverPost);
   const [editMode, setEditMode] = useState(false);
   const router = useRouter();
@@ -50,10 +50,10 @@ export default function Post({ serverPost }:PostProps): React.ReactElement {
     const postObj = {
       id: router.query.postId,
       title: post.title,
-      body: post.body
-    }
-    await updatePost(postObj)
-    Router.push('/') 
+      body: post.body,
+    };
+    await updatePost(postObj);
+    Router.push('/');
   };
 
   if (!post) {
@@ -63,13 +63,13 @@ export default function Post({ serverPost }:PostProps): React.ReactElement {
   return (
     <>
       <BtnBox>
-      <Button onClick={() => Router.push('/')}>Bo to home</Button>
-      <Button type="button" onClick={heandleDeletePost}>
-        Delete post
-      </Button>
-      <Button type="button" onClick={() => setEditMode(prevMode => !prevMode)}>
-        {!editMode ? 'Update post' : 'Cancel edit post'}
-      </Button>
+        <Button onClick={() => Router.push('/')}>Bo to home</Button>
+        <Button type="button" onClick={heandleDeletePost}>
+          Delete post
+        </Button>
+        <Button type="button" onClick={() => setEditMode(prevMode => !prevMode)}>
+          {!editMode ? 'Update post' : 'Cancel edit post'}
+        </Button>
       </BtnBox>
 
       {editMode ? (
@@ -82,8 +82,8 @@ export default function Post({ serverPost }:PostProps): React.ReactElement {
       ) : (
         <>
           <h3>{post.title}</h3>
-            <StyledPost>{post.body} </StyledPost>
-            <Comments comments={post.comments} postId={post.id} />
+          <StyledPost>{post.body} </StyledPost>
+          <Comments comments={post.comments} postId={post.id} />
         </>
       )}
     </>

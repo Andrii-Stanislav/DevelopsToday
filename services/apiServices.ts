@@ -26,13 +26,16 @@ const deletePost = async postId => {
 };
 
 const updatePost = async postObj => {
-  const response = await axios.put(`/posts/${postObj.id}`, {title: postObj.title, body: postObj.body});
+  const response = await axios.put(`/posts/${postObj.id}`, {
+    title: postObj.title,
+    body: postObj.body,
+  });
   console.log(response);
 };
 
 const createComment = async comentObj => {
-  const {data} = await axios.post(`/comments`, comentObj);
-  return data; 
+  const { data } = await axios.post(`/comments`, comentObj);
+  return data;
 };
 
 export { getAllPosts, getOnePost, createPost, deletePost, updatePost, createComment };
