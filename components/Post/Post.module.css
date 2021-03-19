@@ -1,0 +1,19 @@
+.li {
+    list-style: none;
+    max-width: 300px;
+    padding: 5px;
+    transition: all 250ms linear;
+}
+
+.li:hover {
+    transform: translateX(-10px);
+    box-shadow: 0 0 10px grey;
+}
+
+.li:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+ 
+.a {
+    list-style: none;
+}

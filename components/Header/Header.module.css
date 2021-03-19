@@ -1,0 +1,25 @@
+.btn {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 10px;
+  margin-left: 15px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  transition: all 250ms linear;
+}
+
+.btn:hover {
+    color: grey;
+}
+
+.title {
+  margin: 0;
+  padding: 10px;
+  transition: all 250ms linear;
+}
+
+.title:hover {
+    color: grey;
+}
